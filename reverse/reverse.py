@@ -46,8 +46,13 @@ class LinkedList:
     prev = None
     current_node = self.head
     while current_node is not None:
+      # save current_nodes.next location
       next_node = current_node.next_node
+      # Set current_nodes.next location as prev(None)
       current_node.set_next(prev)
+      # Set prev to be the current Node
       prev = current_node
+      # Set the new current node to be the original current mode's next
       current_node = next_node
+    # Declare the head to be prev (current_node)-> continue the change till current_node is None
     self.head = prev
